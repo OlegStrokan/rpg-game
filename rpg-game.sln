@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rpg-game", "Rpg-game\Rpg-game.csproj", "{4237A485-150C-4F3E-AFBD-F9BEDFC8A232}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engine", "Engine\Engine.csproj", "{0C942E27-2419-4D27-B2C1-4858F86A018B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4237A485-150C-4F3E-AFBD-F9BEDFC8A232}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4237A485-150C-4F3E-AFBD-F9BEDFC8A232}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4237A485-150C-4F3E-AFBD-F9BEDFC8A232}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4237A485-150C-4F3E-AFBD-F9BEDFC8A232}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C942E27-2419-4D27-B2C1-4858F86A018B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C942E27-2419-4D27-B2C1-4858F86A018B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C942E27-2419-4D27-B2C1-4858F86A018B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C942E27-2419-4D27-B2C1-4858F86A018B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

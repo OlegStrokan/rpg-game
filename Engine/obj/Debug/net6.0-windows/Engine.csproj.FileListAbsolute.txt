@@ -1,0 +1,13 @@
+C:\Users\oleh.strokan\RiderProjects\rpg-game\Engine\bin\Debug\net6.0-windows\Engine.deps.json
+C:\Users\oleh.strokan\RiderProjects\rpg-game\Engine\bin\Debug\net6.0-windows\Engine.dll
+C:\Users\oleh.strokan\RiderProjects\rpg-game\Engine\bin\Debug\net6.0-windows\Engine.pdb
+C:\Users\oleh.strokan\RiderProjects\rpg-game\Engine\obj\Debug\net6.0-windows\Engine.csproj.AssemblyReference.cache
+C:\Users\oleh.strokan\RiderProjects\rpg-game\Engine\obj\Debug\net6.0-windows\Engine.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\oleh.strokan\RiderProjects\rpg-game\Engine\obj\Debug\net6.0-windows\Engine.AssemblyInfoInputs.cache
+C:\Users\oleh.strokan\RiderProjects\rpg-game\Engine\obj\Debug\net6.0-windows\Engine.AssemblyInfo.cs
+C:\Users\oleh.strokan\RiderProjects\rpg-game\Engine\obj\Debug\net6.0-windows\Engine.csproj.CoreCompileInputs.cache
+C:\Users\oleh.strokan\RiderProjects\rpg-game\Engine\obj\Debug\net6.0-windows\Engine.dll
+C:\Users\oleh.strokan\RiderProjects\rpg-game\Engine\obj\Debug\net6.0-windows\refint\Engine.dll
+C:\Users\oleh.strokan\RiderProjects\rpg-game\Engine\obj\Debug\net6.0-windows\Engine.pdb
+C:\Users\oleh.strokan\RiderProjects\rpg-game\Engine\obj\Debug\net6.0-windows\ref\Engine.dll
+C:\Users\oleh.strokan\RiderProjects\rpg-game\Engine\obj\Debug\net6.0-windows\Engine.g.resources
