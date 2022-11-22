@@ -30,16 +30,18 @@ public class GameSession : BaseNotification
 
     public GameSession()
     {
-        CurrentPlayer = new Player();
-        CurrentPlayer.Name = "Oleh";
-        CurrentPlayer.Gold = 1000;
-        CurrentPlayer.Level = 1;
-        CurrentPlayer.CharacterClass = "Wizard";
-        CurrentPlayer.HitPoints = 10;
-        CurrentPlayer.ExperiencePoints = 2;
-
-        WorldFactory factory = new WorldFactory();
-        CurrentWorld = factory.CreateWorld();
+        CurrentPlayer = new Player
+        {
+           Name = "Oleh",
+            Gold = 1000,
+            Level = 1,
+            CharacterClass = "Wizard",
+            HitPoints = 10,
+            ExperiencePoints = 2,       
+        };
+     
+        
+        CurrentWorld = WorldFactory.CreateWorld();
 
         CurrentLocation = CurrentWorld.LocationAt(0, -1);
 
@@ -77,19 +79,34 @@ public class GameSession : BaseNotification
 
     public void MoveNorth()
     {
-        CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate + 1);
+        if (HasLocationToNorth)
+        {
+             CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate + 1);
+        }
+       
     }
     public void MoveEast()
     {
-        CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate + 1, CurrentLocation.YCoordinate);
+        if (HasLocationToEast)
+        {
+            CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate + 1, CurrentLocation.YCoordinate);
+        }
     }
     public void MoveSouth()
     {
-        CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate - 1);
+        if (HasLocationToSouth)
+        {
+             CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate - 1);
+        }
+       
     }
     public void MoveWest()
     {
-        CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate - 1, CurrentLocation.YCoordinate);
+        if (HasLocationToWest)
+        {
+             CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate - 1, CurrentLocation.YCoordinate);
+        }
+       
     }
 
 }
