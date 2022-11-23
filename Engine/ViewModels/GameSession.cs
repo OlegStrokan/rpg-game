@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using Engine.Models;
 using Engine.Factories;
@@ -22,6 +23,7 @@ public class GameSession : BaseNotification
             OnPropertyChanged(nameof(HasLocationToEast));
             OnPropertyChanged(nameof(HasLocationToSouth));
             OnPropertyChanged(nameof(HasLocationToWest));
+            GivePlayerQuestsAtLocation();
         }
     }
     
@@ -42,10 +44,8 @@ public class GameSession : BaseNotification
      
         
         CurrentWorld = WorldFactory.CreateWorld();
-
-        CurrentLocation = CurrentWorld.LocationAt(0, -1);
-
-    
+        
+        CurrentLocation = CurrentWorld.LocationAt(0, 0);
     }
 
     public bool HasLocationToNorth
@@ -107,6 +107,17 @@ public class GameSession : BaseNotification
              CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate - 1, CurrentLocation.YCoordinate);
         }
        
+    }
+
+    public void GivePlayerQuestsAtLocation()
+    {
+        foreach (Quest quest in CurrentLocation.QuestsAvailableHere)
+        {
+            if (!CurrentPlayer.Quests.Any(q => q.PlayerQuest.ID == quest.ID))
+            {
+                CurrentPlayer.Quests.Add(new QuestStatus(quest));
+            }
+        }
     }
 
 }

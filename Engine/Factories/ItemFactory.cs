@@ -13,6 +13,8 @@ public static class ItemFactory
          _standartGameItems = new List<GameItem>();
          _standartGameItems.Add(new Weapon(1001, "Pointy Stick", 1, 1, 2));
          _standartGameItems.Add(new Weapon(1002, "Rusty Sword", 5, 1, 3));
+         _standartGameItems.Add(new GameItem(9001, "Snake fang", 5 ));
+         _standartGameItems.Add(new GameItem(9002, "Snakeskin", 5 ));
      }
 
      public static GameItem CreateGameItem(int itemTypeID)
