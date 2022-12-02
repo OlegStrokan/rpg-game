@@ -3,11 +3,11 @@
 public class QuestStatus
 {
     public Quest PlayerQuest { get; set; }
-    public bool isCompleted { get; set; }
+    public bool IsCompleted { get; set; }
 
     public QuestStatus(Quest quest)
     {
         PlayerQuest = quest;
-        isCompleted = false;
+        IsCompleted = false;
     }
 }
