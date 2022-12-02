@@ -25,6 +25,15 @@ internal static class QuestFactory
             10, 
             rewardItems
             ));
+        _quests.Add(new Quest(
+            2, 
+            "Kill the boss", 
+            "Defeat the boss of the location",
+            itemsToComplete, 
+            50,
+            0, 
+            rewardItems
+            ));
     }
 
     internal static Quest GetQuestByID(int id)
