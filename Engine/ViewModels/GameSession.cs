@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using Engine.EventArgs;
 using Engine.Models;
 using Engine.Factories;
 
@@ -9,6 +11,9 @@ namespace Engine.ViewModels;
 
 public class GameSession : BaseNotification
 {
+    public event EventHandler<GameMessageEventArgs> OnMessageRaised; 
+    #region Properties
+    
     private Location _currentLocation;
     private Monster _currentMonster;
     public Player CurrentPlayer { get; set; }
@@ -58,11 +63,18 @@ public class GameSession : BaseNotification
             
             OnPropertyChanged(nameof(CurrentMonster));
             OnPropertyChanged(nameof(HasMonster));
+
+            if (CurrentMonster != null) 
+            {
+                RaiseMessage("");
+                RaiseMessage($"You see a {CurrentMonster.Name} here!");
+            }
         }
     }
 
     public bool HasMonster => CurrentMonster != null;
 
+    #endregion
     public bool HasLocationToNorth
     {
         get
@@ -137,6 +149,11 @@ public class GameSession : BaseNotification
     public void GetMonsterAtLocation()
     {
         CurrentMonster = CurrentLocation.GetMonster();
+    }
+
+    public void RaiseMessage(string message)
+    {
+        OnMessageRaised?.Invoke(this, new GameMessageEventArgs(message));
     }
 
 }
