@@ -13,12 +13,15 @@ public class Monster : BaseNotification
     public int HitPoints
     {
         get { return _hitPoints; }
-        private set
+         set
         {
             _hitPoints = value;
             OnPropertyChanged(nameof(HitPoints));
         }
     }
+    
+    public int MinimumDamage { get; set; }
+    public int MaximumDamage { get; set; }
     
     public int RewardExperiencePoints { get; private set; }
     public int RewardGold { get; private set; }
@@ -31,8 +34,10 @@ public class Monster : BaseNotification
         int maximumHitPoints,
         int hitPoints, 
         int rewardExperiencePoints,
-        int rewardGold
-        )
+        int rewardGold,
+        int minimumDatage,
+        int maximumDamage
+            )
     {
         Name = name;
         ImageName = string.Format("/Engine;component/Images/Monsters/{0}", imageName);
@@ -40,6 +45,8 @@ public class Monster : BaseNotification
         HitPoints = hitPoints;
         RewardExperiencePoints = rewardExperiencePoints;
         RewardGold = rewardGold;
+        MinimumDamage = minimumDatage;
+        MaximumDamage = maximumDamage;
 
         Inventory = new ObservableCollection<ItemQuantity>();
     }
