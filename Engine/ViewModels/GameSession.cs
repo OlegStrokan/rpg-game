@@ -80,34 +80,17 @@ public class GameSession : BaseNotification
     public bool HasMonster => CurrentMonster != null;
 
     #endregion
-    public bool HasLocationToNorth
-    {
-        get
-        {
-            return CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate + 1) != null;
-        }
-    }   
-    public bool HasLocationToEast
-    {
-        get
-        {
-            return CurrentWorld.LocationAt(CurrentLocation.XCoordinate + 1, CurrentLocation.YCoordinate) != null;
-        }
-    }    
-    public bool HasLocationToSouth
-    {
-        get
-        {
-            return CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate - 1) != null;
-        }
-    }  
-    public bool HasLocationToWest
-    {
-        get
-        {
-            return CurrentWorld.LocationAt(CurrentLocation.XCoordinate - 1, CurrentLocation.YCoordinate) != null;
-        }
-    }
+    public bool HasLocationToNorth =>
+        CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate + 1) != null;
+      
+    public bool HasLocationToEast => 
+        CurrentWorld.LocationAt(CurrentLocation.XCoordinate + 1, CurrentLocation.YCoordinate) != null;
+     
+    public bool HasLocationToSouth => 
+        CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate - 1) != null;
+        
+    public bool HasLocationToWest =>
+        CurrentWorld.LocationAt(CurrentLocation.XCoordinate - 1, CurrentLocation.YCoordinate) != null;
 
     public void MoveNorth()
     {
@@ -228,17 +211,3 @@ public class GameSession : BaseNotification
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
