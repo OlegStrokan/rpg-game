@@ -123,17 +123,6 @@ public class GameSession : BaseNotification
         }
        
     }
-
-    public void GivePlayerQuestsAtLocation()
-    {
-        foreach (Quest quest in CurrentLocation.QuestsAvailableHere)
-        {
-            if (!CurrentPlayer.Quests.Any(q => q.PlayerQuest.ID == quest.ID))
-            {
-                CurrentPlayer.Quests.Add(new QuestStatus(quest));
-            }
-        }
-    }
     public void GetMonsterAtLocation()
     {
         CurrentMonster = CurrentLocation.GetMonster();
@@ -144,6 +133,34 @@ public class GameSession : BaseNotification
         OnMessageRaised?.Invoke(this, new GameMessageEventArgs(message));
     }
 
+    private void GivePlayerQuestsAtLocation()
+    {
+        foreach (Quest quest in CurrentLocation.QuestsAvailableHere)
+        {
+            if (!CurrentPlayer.Quests.Any(q => q.PlayerQuest.ID == quest.ID))
+            {
+                CurrentPlayer.Quests.Add(new QuestStatus(quest));
+                
+                RaiseMessage("");
+                RaiseMessage($"You receive the '{quest.Name}' quest ");
+                RaiseMessage(quest.Description);
+                
+                RaiseMessage("Return with:");
+                foreach (ItemQuantity itemQuantity in quest.ItemsToComplete)
+                {
+                    RaiseMessage($"{itemQuantity.Quantity} {ItemFactory.CreateGameItem(itemQuantity.Quantity)}");
+                }
+                
+                RaiseMessage($"And you wil receive:");
+                RaiseMessage($"{quest.RewardExperiencePoints} experience points");
+                RaiseMessage($"{quest.RewardGold} gold");
+                foreach (ItemQuantity itemQuantity in quest.RewardItems)
+                {
+                    RaiseMessage($"{itemQuantity.Quantity} {ItemFactory.CreateGameItem(itemQuantity.ItemID)}");
+                }
+            }
+        }
+    }
     public void AttackCurrentMonster()
     {
         if (CurrentWeapon == null)
