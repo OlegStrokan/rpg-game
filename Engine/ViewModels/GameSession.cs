@@ -31,6 +31,7 @@ public class GameSession : BaseNotification
             OnPropertyChanged(nameof(HasLocationToWest));
             GivePlayerQuestsAtLocation();
             GetMonsterAtLocation();
+            CompleteQuestsAtLocation();
         }
     }
     public World CurrentWorld { get; set; }
@@ -203,7 +204,8 @@ public class GameSession : BaseNotification
         }
         else
         {
-            int damageToPlayer = RandomNumberGenerator.NumberBetween(CurrentMonster.MinimumDamage, CurrentMonster.MaximumDamage);
+            int damageToPlayer =
+                RandomNumberGenerator.NumberBetween(CurrentMonster.MinimumDamage, CurrentMonster.MaximumDamage);
 
             if (damageToPlayer == 0)
             {
@@ -223,6 +225,48 @@ public class GameSession : BaseNotification
 
                 CurrentLocation = CurrentWorld.LocationAt(0, -1);
                 CurrentPlayer.HitPoints = CurrentPlayer.Level * 10;
+            }
+
+        }
+    }
+
+    private void CompleteQuestsAtLocation()
+    {
+        foreach (Quest quest in CurrentLocation.QuestsAvailableHere)
+        {
+            QuestStatus questToComplete =
+                CurrentPlayer.Quests.FirstOrDefault(q => q.PlayerQuest.ID == quest.ID && !q.IsCompleted);
+
+            if (questToComplete != null)
+            {
+                if (CurrentPlayer.HasAllTheseItems(quest.ItemsToComplete))
+                {
+                    foreach (ItemQuantity itemQuantity in quest.ItemsToComplete)
+                    {
+                        for (int i = 0; i < itemQuantity.Quantity; i++)
+                        {
+                            CurrentPlayer.RemoveItemFromInventory(CurrentPlayer.Inventory.First(item => item.ItemTypeID == itemQuantity.ItemID));
+                        }
+                    }
+                    
+                    RaiseMessage("");
+                    RaiseMessage($"You completed the '{quest.Name}' quest");
+
+                    CurrentPlayer.ExperiencePoints += quest.RewardExperiencePoints;
+                    RaiseMessage($"You receive {quest.RewardExperiencePoints}' experience points");
+                    
+                    CurrentPlayer.Gold += quest.RewardGold;
+                    RaiseMessage($"You receive {quest.RewardGold} gold");
+
+                    foreach (ItemQuantity itemQuantity in quest.RewardItems)
+                    {
+                        GameItem rewardItem = ItemFactory.CreateGameItem(itemQuantity.ItemID);
+                        CurrentPlayer.AddItemToInventory(rewardItem);
+                        RaiseMessage($"You receive a {rewardItem.Name}");
+                    }
+
+                    questToComplete.IsCompleted = true;
+                }
             }
 
         }
