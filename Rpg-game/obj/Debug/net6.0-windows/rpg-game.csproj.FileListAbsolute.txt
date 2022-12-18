@@ -22,3 +22,5 @@ C:\Users\oleh.strokan\RiderProjects\rpg-game\rpg-game\obj\Debug\net6.0-windows\r
 C:\Users\oleh.strokan\RiderProjects\rpg-game\Rpg-game\bin\Debug\net6.0-windows\Engine.dll
 C:\Users\oleh.strokan\RiderProjects\rpg-game\Rpg-game\bin\Debug\net6.0-windows\Engine.pdb
 C:\Users\oleh.strokan\RiderProjects\rpg-game\Rpg-game\obj\Debug\net6.0-windows\Rpg-game.csproj.CopyComplete
+C:\Users\oleh.strokan\RiderProjects\rpg-game\Rpg-game\obj\Debug\net6.0-windows\TradeScreen.baml
+C:\Users\oleh.strokan\RiderProjects\rpg-game\Rpg-game\obj\Debug\net6.0-windows\TradeScreen.g.cs

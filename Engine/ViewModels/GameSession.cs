@@ -16,6 +16,7 @@ public class GameSession : BaseNotification
     
     private Location _currentLocation;
     private Monster _currentMonster;
+    private Trader _currentTrader;
     public Player CurrentPlayer { get; set; }
 
     public Location CurrentLocation
@@ -32,6 +33,7 @@ public class GameSession : BaseNotification
             GivePlayerQuestsAtLocation();
             GetMonsterAtLocation();
             CompleteQuestsAtLocation();
+            CurrentTrader = CurrentLocation.TraderHere;
         }
     }
     public World CurrentWorld { get; set; }
@@ -78,7 +80,17 @@ public class GameSession : BaseNotification
         }
     }
 
-    public bool HasMonster => CurrentMonster != null;
+    public Trader CurrentTrader
+    {
+        get { return _currentTrader; }
+        set
+        {
+            _currentTrader = value;
+                OnPropertyChanged(nameof(CurrentTrader));
+                OnPropertyChanged(nameof(HasTrader));
+        }
+
+    }
 
     #endregion
     public bool HasLocationToNorth =>
@@ -92,6 +104,10 @@ public class GameSession : BaseNotification
         
     public bool HasLocationToWest =>
         CurrentWorld.LocationAt(CurrentLocation.XCoordinate - 1, CurrentLocation.YCoordinate) != null;
+    
+    public bool HasTrader => CurrentTrader != null;
+
+    public bool HasMonster => CurrentMonster != null;
 
     public void MoveNorth()
     {
@@ -149,7 +165,7 @@ public class GameSession : BaseNotification
                 RaiseMessage("Return with:");
                 foreach (ItemQuantity itemQuantity in quest.ItemsToComplete)
                 {
-                    RaiseMessage($"{itemQuantity.Quantity} {ItemFactory.CreateGameItem(itemQuantity.Quantity)}");
+                    RaiseMessage($"{itemQuantity.Quantity} {ItemFactory.CreateGameItem(itemQuantity.ItemID).Name}");
                 }
                 
                 RaiseMessage($"And you wil receive:");
@@ -157,7 +173,7 @@ public class GameSession : BaseNotification
                 RaiseMessage($"{quest.RewardGold} gold");
                 foreach (ItemQuantity itemQuantity in quest.RewardItems)
                 {
-                    RaiseMessage($"{itemQuantity.Quantity} {ItemFactory.CreateGameItem(itemQuantity.ItemID)}");
+                    RaiseMessage($"{itemQuantity.Quantity} {ItemFactory.CreateGameItem(itemQuantity.ItemID).Name}");
                 }
             }
         }
@@ -253,10 +269,10 @@ public class GameSession : BaseNotification
                     RaiseMessage($"You completed the '{quest.Name}' quest");
 
                     CurrentPlayer.ExperiencePoints += quest.RewardExperiencePoints;
-                    RaiseMessage($"You receive {quest.RewardExperiencePoints}' experience points");
+                    RaiseMessage($"You receive '{quest.RewardExperiencePoints}' experience points");
                     
                     CurrentPlayer.Gold += quest.RewardGold;
-                    RaiseMessage($"You receive {quest.RewardGold} gold");
+                    RaiseMessage($"You receive '{quest.RewardGold}' gold");
 
                     foreach (ItemQuantity itemQuantity in quest.RewardItems)
                     {

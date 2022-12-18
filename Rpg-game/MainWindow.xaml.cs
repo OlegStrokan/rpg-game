@@ -25,8 +25,6 @@ namespace Rpg_game
         {
             InitializeComponent();
 
-            _gameSession = new GameSession();
-
             _gameSession.OnMessageRaised += OnGameMessageRaised;
             
             DataContext = _gameSession;
@@ -62,5 +60,13 @@ namespace Rpg_game
         {
             _gameSession.AttackCurrentMonster();
         }
-    }
+
+        private void OnClick_DisplayTraderScreen(object sender, RoutedEventArgs e)
+        {
+            TradeScreen tradeScreen = new TradeScreen();
+            tradeScreen.Owner = this;
+            tradeScreen.DataContext = _gameSession;
+            tradeScreen.ShowDialog();
+        }
+     }
 }
