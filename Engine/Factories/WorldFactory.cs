@@ -6,15 +6,15 @@ internal static class WorldFactory
 {
     internal static World CreateWorld()
     {
-         World newWorld = new World();
+          World newWorld = new World();
             newWorld.AddLocation(-2, -1, "Farmer's Field", 
                 "There are rows of corn growing here, with giant rats hiding between them.", 
                 "FarmFields.png");
             newWorld.LocationAt(-2, -1).AddMonster(2, 100);
-            newWorld.LocationAt(-1, -1).TraderHere = TraderFactory.GetTraderByName("Farmer Ted");
             newWorld.AddLocation(-1, -1, "Farmer's House",
                 "This is the house of your neighbor, Farmer Ted.",
                 "Farmhouse.png");
+            newWorld.LocationAt(-1, -1).TraderHere = TraderFactory.GetTraderByName("Farmer Ted");
             newWorld.AddLocation(0, -1, "Home", 
                 "This is your home", 
                 "Home.png");
@@ -35,12 +35,12 @@ internal static class WorldFactory
             newWorld.AddLocation(0, 1, "Herbalist's hut",
                 "You see a small hut, with plants drying from the roof.",
                 "HerbalistsHut.png");
-            newWorld.LocationAt(0,1).TraderHere = TraderFactory.GetTraderByName("Pete the Herbalist");
+            newWorld.LocationAt(0, 1).TraderHere = TraderFactory.GetTraderByName("Pete the Herbalist");
+            newWorld.LocationAt(0, 1).QuestsAvailableHere.Add(QuestFactory.GetQuestByID(1));
             newWorld.AddLocation(0, 2, "Herbalist's garden",
                 "There are many plants here, with snakes hiding behind them.",
                 "HerbalistsGarden.png");
             newWorld.LocationAt(0, 2).AddMonster(1, 100);
-            newWorld.LocationAt(0, 1).QuestsAvailableHere.Add(QuestFactory.GetQuestByID(2));
             return newWorld;
     }
 }
