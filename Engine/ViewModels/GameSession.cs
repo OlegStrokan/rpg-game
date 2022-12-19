@@ -46,8 +46,8 @@ public class GameSession : BaseNotification
            Name = "Oleh",
             Gold = 1000,
             Level = 1,
-            CharacterClass = "Wizard",
-            HitPoints = 10,
+            CharacterClass = "Wizard", 
+            CurrentHitPoints = 10,
             ExperiencePoints = 2,       
         };
 
@@ -195,11 +195,11 @@ public class GameSession : BaseNotification
         }
         else
         {
-            CurrentMonster.HitPoints -= damageToMonster;
+            CurrentMonster.CurrentHitPoints -= damageToMonster;
             RaiseMessage($"You hit the {CurrentMonster.Name} for {damageToMonster} points. ");
         }
 
-        if (CurrentMonster.HitPoints <= 0)
+        if (CurrentMonster.CurrentHitPoints <= 0)
         {
             RaiseMessage("");
             RaiseMessage($"You defeated the {CurrentMonster.Name}");
@@ -207,13 +207,13 @@ public class GameSession : BaseNotification
             CurrentPlayer.ExperiencePoints += CurrentMonster.RewardExperiencePoints;
             RaiseMessage($"You receive {CurrentMonster.RewardExperiencePoints}");
 
-            CurrentPlayer.Gold += CurrentMonster.RewardGold;
-            RaiseMessage($"You receive {CurrentMonster.RewardGold}");
+            CurrentPlayer.Gold += CurrentMonster.Gold;
+            RaiseMessage($"You receive {CurrentMonster.Gold}");
 
-            foreach (ItemQuantity itemQuantity in CurrentMonster.Inventory)
+            foreach (GameItem gameItem in CurrentMonster.Inventory)
             {
-                GameItem item = ItemFactory.CreateGameItem(itemQuantity.ItemID);
-                CurrentPlayer.AddItemToInventory(item);
+                CurrentPlayer.AddItemToInventory(gameItem);
+                RaiseMessage($"You receive one {gameItem.Name}");
             }
 
             GetMonsterAtLocation();
@@ -230,17 +230,17 @@ public class GameSession : BaseNotification
 
             else
             {
-                CurrentPlayer.HitPoints -= damageToPlayer;
+                CurrentPlayer.CurrentHitPoints -= damageToPlayer;
                 RaiseMessage($"The {CurrentMonster.Name} hit you for {damageToPlayer} points.");
             }
 
-            if (CurrentPlayer.HitPoints <= 0)
+            if (CurrentPlayer.CurrentHitPoints <= 0)
             {
                 RaiseMessage("");
                 RaiseMessage($"The {CurrentMonster.Name} killed you.");
 
                 CurrentLocation = CurrentWorld.LocationAt(0, -1);
-                CurrentPlayer.HitPoints = CurrentPlayer.Level * 10;
+                CurrentPlayer.CurrentHitPoints = CurrentPlayer.Level * 10;
             }
 
         }

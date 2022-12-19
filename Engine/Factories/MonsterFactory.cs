@@ -39,7 +39,7 @@ public class MonsterFactory
     {
         if (RandomNumberGenerator.NumberBetween(1, 100) <= percentage)
         {
-            monster.Inventory.Add(new ItemQuantity(itemID, 1));
+            monster.AddItemToInventory(ItemFactory.CreateGameItem(itemID));
         }
     }
 }
