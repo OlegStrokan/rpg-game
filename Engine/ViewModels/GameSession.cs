@@ -54,6 +54,7 @@ public class GameSession : BaseNotification
         if (!CurrentPlayer.Weapons.Any())
         {
             CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(1001));
+            CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(2000));
         }
         
         CurrentWorld = WorldFactory.CreateWorld();
