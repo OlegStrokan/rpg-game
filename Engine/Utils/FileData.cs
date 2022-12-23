@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 
@@ -8,29 +9,31 @@ public static class FileData
 {
     private static StreamReader reader;
     private static StreamWriter writer;
-    public static string data;
-    
-    public static string ReadFromFile(string path = @"C:\Users\oleh.strokan\RiderProjects\rpg-game\User data\items.txt")
+    public static List<string> data = new List<string>();
+    public static string basePath = @"C:\Users\oleh.strokan\RiderProjects\rpg-game\User data\";
+
+    public static List<string> ReadFromFile(string path)
     {
         try
         {
-            if (!File.Exists(path))
+            if (!File.Exists(basePath + path))
             {
-                File.Create(path);
+                File.Create(basePath + path);
             }
-            reader = new StreamReader(path);
-            
-            data = reader.ReadLine();
-            
+            reader = new StreamReader(basePath + path);
+
+            while (reader.Peek() >= 0)
+            {
+                data.Add(reader.ReadLine());
+            }
+
+
             reader.Close();
+            return data;
         }
         catch (Exception e)
         {
             Console.WriteLine(e.Message);
-        }
-        finally
-        {
-           
         }
         return data;
     }
