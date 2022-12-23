@@ -144,7 +144,9 @@ public abstract class LivingEntity : BaseNotification
     {
         Inventory.Remove(item);
 
-        GroupedInventoryItem groupedInventoryItemToRemove = GroupedInventory.FirstOrDefault(gi => gi.Item == item);
+        GroupedInventoryItem groupedInventoryItemToRemove = item.IsUnique ? 
+            GroupedInventory.FirstOrDefault(gi => gi.Item == item) : 
+            GroupedInventory.FirstOrDefault(gi => gi.Item.ItemTypeID == item.ItemTypeID);
 
         if (groupedInventoryItemToRemove.Quantity == 1)
         {
