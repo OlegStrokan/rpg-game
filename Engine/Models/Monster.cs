@@ -13,19 +13,15 @@ public class Monster : LivingEntity
         string name,
         string imageName, 
         int maximumHitPoints,
-        int hitPoints, 
+        int currentHitPoints, 
         int rewardExperiencePoints,
         int rewardGold,
         int minimumDatage,
         int maximumDamage
-            )
+            ) : base(name, maximumHitPoints, currentHitPoints, rewardGold)
     {
-        Name = name;
         ImageName = $"/Engine;component/Images/Monsters/{imageName}";
-        MaximumHitPoints = maximumHitPoints;
-        CurrentHitPoints = hitPoints;
         RewardExperiencePoints = rewardExperiencePoints;
-        Gold = rewardGold;
         MinimumDamage = minimumDatage;
         MaximumDamage = maximumDamage;
     }

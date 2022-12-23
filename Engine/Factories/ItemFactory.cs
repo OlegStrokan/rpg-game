@@ -11,7 +11,7 @@ public static class ItemFactory
      static ItemFactory()
      {
          _standardGameItems = new List<GameItem>();
-         List<GameItem> gameItems = ConvertData.ConverToGameItem(FileData.ReadFromFile("items.txt"));
+         List<GameItem> gameItems = ConvertData.ConverToObject(FileData.ReadFromFile("items.txt"));
          foreach (GameItem gameItem in gameItems)
          {
              _standardGameItems.Add(gameItem);

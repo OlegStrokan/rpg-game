@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
@@ -15,7 +16,7 @@ public abstract class LivingEntity : BaseNotification
     public string Name
     {
         get { return _name; }
-        set
+        private set
         {
             _name = value;
             OnPropertyChanged(nameof(Name));
@@ -26,7 +27,7 @@ public abstract class LivingEntity : BaseNotification
     public int CurrentHitPoints
     {
         get { return _currentHitPoints; }
-        set
+        private set
         {
             _currentHitPoints = value;
             OnPropertyChanged(nameof(CurrentHitPoints));
@@ -36,7 +37,7 @@ public abstract class LivingEntity : BaseNotification
     public int MaximumHitPoints
     {
         get { return _maximumHitPoints; }
-        set
+        private set
         {
             _maximumHitPoints = value;
             OnPropertyChanged(nameof(MaximumHitPoints));
@@ -46,22 +47,76 @@ public abstract class LivingEntity : BaseNotification
     public int Gold
     {
         get { return _gold; }
-        set
+        private set
         {
             _gold = value;
             OnPropertyChanged(nameof(Gold));
         }
     }
-    
+
     public ObservableCollection<GameItem> Inventory { get; set; }
     public ObservableCollection<GroupedInventoryItem> GroupedInventory { get; set; }
 
     public List<GameItem> Weapons => Inventory.Where(i => i is Weapon).ToList();
 
-    protected LivingEntity()
+    public bool IsDead => CurrentHitPoints <= 0;
+
+    public event EventHandler OnKilled;
+
+    protected LivingEntity(string name, int maximumHitPoints, int currentHitPoints, int gold)
     {
+        Name = name;
+        MaximumHitPoints = maximumHitPoints;
+        CurrentHitPoints = currentHitPoints;
+        Gold = gold;
+
         Inventory = new ObservableCollection<GameItem>();
         GroupedInventory = new ObservableCollection<GroupedInventoryItem>();
+    }
+
+    public void TakeDamage(int hitPointsOfDamage)
+    {
+        CurrentHitPoints -= hitPointsOfDamage;
+
+        if (IsDead)
+        {
+            CurrentHitPoints = 0;
+            RaiseOnKilledEvent();
+        }
+    }
+
+    public void Heal(int hitPointsToHeal)
+    {
+        CurrentHitPoints += hitPointsToHeal;
+
+        if (CurrentHitPoints > MaximumHitPoints)
+        {
+            CurrentHitPoints = MaximumHitPoints;
+        }
+    }
+
+    public void CompletelyHeal()
+    {
+        CurrentHitPoints = MaximumHitPoints;
+    }
+
+    public void ReceiveGold(int amount)
+    {
+        Gold += amount;
+    }
+
+    public void SpendGold(int amount)
+    {
+        if (amount > Gold)
+        {
+            throw new ArgumentOutOfRangeException($"{Name} only has {Gold} gold, and cannot spend {amount}");
+        }
+        Gold += amount;
+    }
+
+    public void RaiseOnKilledEvent()
+    {
+        OnKilled?.Invoke(this, new System.EventArgs());
     }
 
     public void AddItemToInventory(GameItem item)
