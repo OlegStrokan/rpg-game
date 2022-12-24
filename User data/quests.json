@@ -1,0 +1,43 @@
+{
+"quests": 
+     [
+       {
+         "Id": 1,
+         "Name": "Clear the herb garden",
+         "Description": "Defeat the snaked in the Herbalist's garden",
+         "ItemsToComplete": [
+           {
+             "ItemID": 9001,
+             "Quantity": 5
+           }
+         ],
+         "RewardExperiencePoints": 25,
+         "RewardGold": 10,
+         "RewardItems": [
+           {
+             "ItemID": 1002,
+             "Quantity": 1
+           }
+         ]
+       },
+       {
+         "Id": 2,
+         "Name": "Kill the boss",
+         "Description": "Defeat the boss of the location",
+         "ItemsToComplete": [
+           {
+             "ItemID": 9001,
+             "Quantity": 5
+           }
+         ],
+         "RewardExperiencePoints": 50,
+         "RewardGold": 0,
+         "RewardItems": [
+           {
+             "ItemID": 1002,
+             "Quantity": 1
+           }
+         ]
+       }
+     ]
+}
