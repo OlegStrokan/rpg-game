@@ -24,3 +24,4 @@ C:\Users\oleh.strokan\RiderProjects\rpg-game\Rpg-game\bin\Debug\net6.0-windows\E
 C:\Users\oleh.strokan\RiderProjects\rpg-game\Rpg-game\obj\Debug\net6.0-windows\Rpg-game.csproj.CopyComplete
 C:\Users\oleh.strokan\RiderProjects\rpg-game\Rpg-game\obj\Debug\net6.0-windows\TradeScreen.baml
 C:\Users\oleh.strokan\RiderProjects\rpg-game\Rpg-game\obj\Debug\net6.0-windows\TradeScreen.g.cs
+C:\Users\oleh.strokan\RiderProjects\rpg-game\Rpg-game\bin\Debug\net6.0-windows\Newtonsoft.Json.dll

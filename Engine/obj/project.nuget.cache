@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Yzk+bKS5ZilzRmPUy4k3GLFmhoz9ILWnWJxFhucr3F2NO547/vvFColk/SzP9XQylfGpeBeOnpfs7K1Sv4uf6w==",
+  "dgSpecHash": "yHBa71iS3V+NwFmMiTrFtnvEpvgVqQkXJ+1aCx7qz8wHsYW9z9XgXPwPdgS9T2PUYeflQUkO8CUU1JY18c+CgQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\oleh.strokan\\RiderProjects\\rpg-game\\Engine\\Engine.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\oleh.strokan\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512"
+  ],
   "logs": []
 }
