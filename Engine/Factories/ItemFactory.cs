@@ -11,10 +11,15 @@ public static class ItemFactory
      static ItemFactory()
      {
          _standardGameItems = new List<GameItem>();
-         List<GameItem> gameItems = ConvertToWeaponOrGameItem.ConvertData(FileData.ReadFromFile("file.txt"));
+         List<GameItem> gameItems = ConvertToGameItem.ConvertData("items.json");
          foreach (GameItem gameItem in gameItems)
          {
              _standardGameItems.Add(gameItem);
+         }  
+         List<Weapon> weapons = ConvertToWeapon.ConvertData("weapons.json");
+         foreach (GameItem weapon in weapons)
+         {
+             _standardGameItems.Add(weapon);
          }
      }
 

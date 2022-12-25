@@ -1,53 +1,39 @@
 {
   "items": [
     {
-      "itemTypeID": 2000,
-      "name": "Test value",
-      "price": 1
+      "ItemTypeID": 2000,
+      "Name": "Test value",
+      "Price": 1
     },
     {
-      "itemTypeID": 1001,
-      "name": "Pointy Stick",
-      "price": 1,
-      "minDamage": 1,
-      "maxDamage": 3
+      "ItemTypeID": 9001,
+      "Name": "Snake fang",
+      "Price": 1
     },
     {
-      "itemTypeID": 1002,
-      "name": "Rusty Sword",
-      "price": 5,
-      "minDamage": 2,
-      "maxDamage": 4
+      "ItemTypeID": 9002,
+      "Name": "Snakeskin",
+      "Price": 2
     },
     {
-      "itemTypeID": 9001,
-      "name": "Snake fang",
-      "price": 1
+      "ItemTypeID": 9003,
+      "Name": "Rat tail",
+      "Price": 1
     },
     {
-      "itemTypeID": 9002,
-      "name": "Snakeskin",
-      "price": 2
+      "ItemTypeID": 9004,
+      "Name": "Rat fur",
+      "Price": 2
     },
     {
-      "itemTypeID": 9003,
-      "name": "Rat tail",
-      "price": 1
+      "ItemTypeID": 9005,
+      "Name": "Spider fang",
+      "Price": 1
     },
     {
-      "itemTypeID": 9004,
-      "name": "Rat fur",
-      "price": 2
-    },
-    {
-      "itemTypeID": 9005,
-      "name": "Spider fang",
-      "price": 1
-    },
-    {
-      "itemTypeID": 9006,
-      "name": "Spider silk",
-      "price": 2
+      "ItemTypeID": 9006,
+      "Name": "Spider silk",
+      "Price": 2
     }
   ]
 }
