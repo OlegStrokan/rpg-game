@@ -1,0 +1,18 @@
+{
+  "weapons": [
+    {
+      "ItemTypeID": 1001,
+      "Name": "Pointy Stick",
+      "Price": 1,
+      "MinDamage": 1,
+      "MaxDamage": 3
+    },
+    {
+      "ItemTypeID": 1002,
+      "Name": "Rusty Sword",
+      "Price": 5,
+      "MinDamage": 2,
+      "MaxDamage": 4
+    }
+  ]
+}
