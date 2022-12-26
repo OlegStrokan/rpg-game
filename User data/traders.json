@@ -2,37 +2,37 @@
   "traders": [
     {
       "Name": "Susan",
-      "items": [
+      "Items": [
         {
-          "itemId": 1001
+          "ItemId": 1001
         },
         {
-          "itemId": 9002
+          "ItemId": 9002
         },
         {
-          "itemId": 9003
+          "ItemId": 9003
         }
       ]
     },
     {
       "Name": "Farmer Ted",
-      "items": [
+      "Items": [
         {
-          "itemId": 9005
+          "ItemId": 9005
         },
         {
-          "itemId": 9005
+          "ItemId": 9005
         },
         {
-          "itemId": 9006
+          "ItemId": 9006
         }
       ]
     },
     {
       "Name": "Pete the Herbalist",
-      "items": [
+      "Items": [
         {
-          "itemId": 1001
+          "ItemId": 1001
         }
       ]
     }
