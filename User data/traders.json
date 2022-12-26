@@ -1,0 +1,40 @@
+{
+  "traders": [
+    {
+      "Name": "Susan",
+      "items": [
+        {
+          "itemId": 1001
+        },
+        {
+          "itemId": 9002
+        },
+        {
+          "itemId": 9003
+        }
+      ]
+    },
+    {
+      "Name": "Farmer Ted",
+      "items": [
+        {
+          "itemId": 9005
+        },
+        {
+          "itemId": 9005
+        },
+        {
+          "itemId": 9006
+        }
+      ]
+    },
+    {
+      "Name": "Pete the Herbalist",
+      "items": [
+        {
+          "itemId": 1001
+        }
+      ]
+    }
+  ]
+}
