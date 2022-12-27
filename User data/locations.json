@@ -1,0 +1,111 @@
+{
+  "locations": [
+    {
+      "XCoordinate": -2,
+      "YCoordinate": -1,
+      "Name": "Farmer's Field",
+      "Description": "There are rows of corn growing here, with giant rats hiding between them.",
+      "ImageName": "FarmFields.png",
+      "MonstersHere": [
+        {
+          "Id": 2,
+          "ChanceOfEncountering": 100
+        }
+      ]
+    },
+    {
+      "XCoordinate": -1,
+      "YCoordinate": -1,
+      "Name": "Farmer's House",
+      "Description": "This is the house of your neighbor, Farmer Ted.",
+      "ImageName": "Farmhouse.png",
+      "TraderHere": [
+        {
+          "Name": "Farmer Ted"
+        }
+      ]
+    },
+    {
+      "XCoordinate": 0,
+      "YCoordinate": -1,
+      "Name": "Home",
+      "Description": "This is your home.",
+      "ImageName": "Home.png"
+    },
+    {
+      "XCoordinate": -1,
+      "YCoordinate": 0,
+      "Name": "Trading Shop",
+      "Description": "The shop of Susan, the trader.",
+      "ImageName": "Trader.png",
+      "TraderHere": [
+        {
+          "Name": "Susan"
+        }
+      ]
+    },
+    {
+      "XCoordinate": 0,
+      "YCoordinate": 0,
+      "Name": "Town square",
+      "Description": "You see a fountain here.",
+      "ImageName": "TownSquare.png"
+    },
+    {
+      "XCoordinate": 1,
+      "YCoordinate": 0,
+      "Name": "Town Gate",
+      "Description": "There is a gate here, protecting the town from giant spiders",
+      "ImageName": "TownGate.png"
+    },
+    {
+      "XCoordinate": 2,
+      "YCoordinate": 0,
+      "Name": "Spider Forest",
+      "Description": "The trees in this forest are covered with spider webs.",
+      "ImageName": "SpiderForest.png",
+      "MonstersHere": [
+        {
+          "Id": 3,
+          "ChanceOfEncountering": 100
+        }
+      ]
+    },
+    {
+      "XCoordinate": 0,
+      "YCoordinate": 1,
+      "Name": "Herbalist's hut",
+      "Description": "You see a small hut, with plants drying from the roof.",
+      "ImageName": "HerbalistsHut.png",
+      "TraderHere": [
+        {
+          "Name": "Pete the Herbalist"
+        },
+        {
+          "Name": "Pete the Herbalist 2 "
+        },
+        {
+          "Name": "Pete the Herbalist 3"
+        }
+      ]
+    },
+       {
+      "XCoordinate": 0,
+      "YCoordinate": 2,
+      "Name": "Herbalist's garden",
+      "Description": "There are many plants here, with snakes hiding behind them.",
+      "ImageName": "HerbalistsGarden.png",
+      "QuestsAvailableHere": [
+        {
+          "Id": 1
+        }
+      ],
+      "MonstersHere": [
+        {
+          "Id": 1,
+          "ChanceOfEncountering": 100
+        }
+      ]
+    }
+  ]
+}
