@@ -30,7 +30,7 @@ namespace Engine.Models;
         }
         public ObservableCollection<QuestStatus> Quests { get; }
         #endregion
-        public event EventHandler OnLeveledUp;
+        public event EventHandler OnLevelUp;
         public Player(string name, string characterClass, int experiencePoints,
                       int maximumHitPoints, int currentHitPoints, int gold) : 
             base(name, maximumHitPoints, currentHitPoints, gold)
@@ -61,7 +61,7 @@ namespace Engine.Models;
             if (Level != originalLevel)
             {
                 MaximumHitPoints = Level * 10;
-                OnLeveledUp?.Invoke(this, System.EventArgs.Empty);
+                OnLevelUp?.Invoke(this, System.EventArgs.Empty);
             }
         }
     }
