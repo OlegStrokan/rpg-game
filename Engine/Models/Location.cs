@@ -25,7 +25,7 @@ public class Location
         YCoordinate = yCoordinate;
         Name = name;
         Description = description;
-        ImageName = imageName;
+        ImageName =   ImageName = $"/Engine;component/Images/Locations/{imageName}";
     }
  
     public void AddMonster(int monsterID, int chanceOfEncountering)
