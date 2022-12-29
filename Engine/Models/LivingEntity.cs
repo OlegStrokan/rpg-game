@@ -76,7 +76,6 @@ public abstract class LivingEntity : BaseNotification
     public bool IsDead => CurrentHitPoints <= 0;
 
     public event EventHandler OnKilled;
-    public event EventHandler OnLevelUp;
 
     protected LivingEntity(string name, int maximumHitPoints, int currentHitPoints, int gold, int level = 1)
     {
