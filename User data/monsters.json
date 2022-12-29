@@ -3,7 +3,7 @@
     {
       "Id": 1,
       "Name": "Snake",
-      "ImageName": "Snake.png",
+      "ImageName": "Snake",
       "MaximumHitPoints": 4,
       "CurrentHitPoints": 4,
       "RewardExperiencePoints": 5,
@@ -14,7 +14,7 @@
     {
       "Id": 2,
       "Name": "Rat",
-      "ImageName": "Rat.png",
+      "ImageName": "Rat",
       "MaximumHitPoints": 5,
       "CurrentHitPoints": 5,
       "RewardExperiencePoints": 5,
@@ -25,7 +25,7 @@
     {
       "Id": 3,
       "Name": "GiantSpider.png",
-      "ImageName": "GiantSpider.png",
+      "ImageName": "GiantSpider",
       "MaximumHitPoints": 10,
       "CurrentHitPoints": 10,
       "RewardExperiencePoints": 10,
