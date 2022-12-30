@@ -1,5 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using Engine.ViewModels;
+using NuGet.Frameworks;
 
 namespace TestEngine.ViewModels
 {
@@ -9,7 +11,9 @@ namespace TestEngine.ViewModels
         [TestMethod]
         public void MyTestMethod()
         {
-        Assert
+            GameSession gameSession = new GameSession();
+            Assert.IsNotNull(gameSession.CurrentPlayer);
+            Assert.AreEqual("Town square", gameSession.CurrentLocation.Name);
         }
     }
 }
