@@ -103,9 +103,11 @@
                 </Grid>
             </Border>
             <!-- Monster information -->
+      
             <Border Grid.Row="1" Grid.Column="1"
                     BorderBrush="Gainsboro"
-                    BorderThickness="1">
+                    BorderThickness="1"
+                    Visibility="{Binding !CurrentMonster.IsDead, Converter={StaticResource BooleanToVisibility}}">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
